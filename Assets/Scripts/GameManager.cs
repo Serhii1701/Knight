@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using TMPro;
+
 //using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,11 +10,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool isGameActive;
+    public int enemiesKilled;
 
     Health playerHealth;
 
     [SerializeField] GameObject gameMenu;
     [SerializeField] GameObject resumeGameButton;
+    [SerializeField] TextMeshProUGUI enemiesKilledText;
 
     private void Awake()
     {
@@ -37,6 +42,8 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+
+        SetEnemiesKilledText();
     }
 
     void PauseGame()
@@ -91,5 +98,10 @@ public class GameManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void SetEnemiesKilledText()
+    {
+        enemiesKilledText.text = "Enemies Killed " + enemiesKilled.ToString();
     }
 }

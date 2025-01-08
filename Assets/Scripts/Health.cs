@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+
 //using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +18,7 @@ public class Health : MonoBehaviour, IDataPersistence
     Strength strengthScript;
     HealthBar healthBar;
     Human human;
+    GameManager gameManager;
 
     AudioSource audioSource;
     [SerializeField] AudioClip takeDamageSound;
@@ -32,12 +35,11 @@ public class Health : MonoBehaviour, IDataPersistence
     readonly string isDieBoolAnimator = "isDie";
     readonly string npc_HumanEnemyTag = "NPC_Human_Enemy";
 
-    public int EnemiesKilled { get; private set; } = 0;
-
     private void Awake()
     {
         human = GetComponent<Human>();
         audioSource = GetComponent<AudioSource>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
     private void Start()
     {
@@ -149,7 +151,7 @@ public class Health : MonoBehaviour, IDataPersistence
     {
         if (isDie && gameObject.CompareTag("NPC_Human_Enemy"))
         {
-            EnemiesKilled++;
+            gameManager.enemiesKilled++;
         }
     }
 
