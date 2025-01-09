@@ -46,7 +46,7 @@ public class Health : MonoBehaviour, IDataPersistence
         animator = GetComponent<Animator>();
         damage = GetComponent<Damage>();
         healthBar = GetComponent<HealthBar>();
-        fallDirection = Quaternion.Euler(-80, 0, 0);
+        fallDirection = Quaternion.Euler(-70, 0, 0);
         if (CurrentHealth <= 0)
         {
             Die();
