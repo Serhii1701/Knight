@@ -5738,6 +5738,10 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1034264531}
+    - target: {fileID: 2323198352517496664, guid: 97c019326d3d64a499293384c8d8a27b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335165858928657349, guid: 97c019326d3d64a499293384c8d8a27b, type: 3}
       propertyPath: m_Name
       value: Game Menu Canvas
