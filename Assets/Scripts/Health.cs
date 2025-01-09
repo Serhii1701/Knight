@@ -141,15 +141,16 @@ public class Health : MonoBehaviour, IDataPersistence
     void Die()
     {
         isDie = true;
+        CountEnemiesKilled();
         animator.SetLayerWeight(animator.GetLayerIndex(deathLayer), 1);
         animator.SetBool(isDieBoolAnimator, isDie);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, fallDirection, rotationSpeed);
-        CountEnemiesKilled();
     }
 
     private void CountEnemiesKilled()
     {
-        if (isDie && gameObject.CompareTag("NPC_Human_Enemy"))
+        if (isDie && gameObject.CompareTag("NPC_Human_Enemy") && 
+            animator.GetLayerWeight(animator.GetLayerIndex(deathLayer)) == 0) 
         {
             gameManager.enemiesKilled++;
         }

@@ -102,6 +102,6 @@ public class GameManager : MonoBehaviour
 
     private void SetEnemiesKilledText()
     {
-        enemiesKilledText.text = "Enemies Killed " + enemiesKilled.ToString();
+        enemiesKilledText.text = "Enemies Killed: " + enemiesKilled.ToString();
     }
 }
